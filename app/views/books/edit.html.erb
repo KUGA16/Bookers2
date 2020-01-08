@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div class="body">
+			<div class="container">
+				<p id="notice"><%= flash[:notice] %></p>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-3">
+						<h2>Editing Book</h2>
+						<%= form_for(@book) do |f| %>
+							<div class="field row">
+								<label for="book_title">Title</label>
+								<%= f.text_field :title %>
+							</div>
+							<div class="field row">
+								<label for="book_opinion">Opinion</label>
+								<%= f.text_area :body %>
+							</div>
+							<div class="actions row">
+								<%= f.submit %>
+							</div>
+						<% end %>
+
+						<span>|</span>
+
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
