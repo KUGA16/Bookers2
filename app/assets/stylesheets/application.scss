@@ -17,6 +17,54 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-/*.navbar-nav {
-	background-color: black;
-}*/
+header {
+    color: white;
+}
+
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.navbar-nav {
+    float: left;
+    margin: 0;
+}
+
+.navbar-right {
+    float: right !important;
+    margin-right: -15px;
+}
+
+
+
+a:visited {
+    color: #666;
+}
+
+
+p, ol, ul, td {
+    font-size: 13px;
+}
+
+ body {
+  padding-top: 45px;
+ }
+
+ div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.col-md-6 {
+    width: 50%;
+}
+
+#notice {
+    color: green;
+    padding-top: 10px;
+}

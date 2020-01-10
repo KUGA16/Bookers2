@@ -1,22 +1,20 @@
 class UsersController < ApplicationController
 
-
-	def new
-	end
+before_action :authenticate_user!
+before_action :correct_user, only: [:edit, :update]
 
 	def create
 	end
 
 	def show
 		@book = Book.new
-		@books = Book.all
 		@user = User.find(params[:id])
-		@users = current_user
+		@users = @user.books
+
 	end
 
 	def index
 		@book = Book.new
-		@books = Book.all
 		@user = current_user
 		@users = User.all
 	end
@@ -27,9 +25,12 @@ class UsersController < ApplicationController
 
 	def update
 		@user = current_user
-		@user.update(user_params)
-		flash[:notice] = 'You have updated user successfully.'
-		redirect_to user_path(@user)
+		if @user.update(user_params)
+		   flash[:notice] = 'You have updated user successfully.'
+		   redirect_to user_path(@user)
+		else
+			render :edit
+		end
 	end
 
 
@@ -39,5 +40,13 @@ class UsersController < ApplicationController
 	private
 	def user_params
 		params.require(:user).permit(:name, :introduction, :profile_image)
+	end
+
+	def correct_user
+		@user = current_user
+		user = User.find(params[:id])
+		if current_user != user
+      	   redirect_to user_path(@user)
+    	end
 	end
 end
