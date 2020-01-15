@@ -7,15 +7,14 @@ before_action :correct_user, only: [:edit, :update]
 	end
 
 	def show
-		@book = Book.new
 		@user = User.find(params[:id])
+		@book = Book.new
 		@users = @user.books
 
 	end
 
 	def index
 		@book = Book.new
-		@user = current_user
 		@users = User.all
 	end
 
@@ -32,8 +31,6 @@ before_action :correct_user, only: [:edit, :update]
 			render :edit
 		end
 	end
-
-
 
 
 
